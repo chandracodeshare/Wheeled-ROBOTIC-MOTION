@@ -1,0 +1,93 @@
+
+Wheeled Mobile Robot Simulation Using URDF and PyBullet
+Project Overview
+This project presents a complete pipeline for modeling, simulating, and controlling a differential drive mobile robot using URDF (Unified Robot Description Format) and the PyBullet physics engine. The robot is designed from scratch and simulated in a realistic virtual environment, enabling experiments in mobile robot kinematics, control, and navigation.
+The project covers the following major stages:
+1.	Robot modeling using URDF
+2.	Loading and visualization in PyBullet
+3.	Physical property configuration (friction, damping, gravity)
+4.	Motion execution and trajectory generation
+This simulation framework is suitable for applications in:
+•	Robotics research
+•	Reinforcement learning
+•	Autonomous navigation
+•	Control system design
+•	SLAM and perception experiments
+
+System Architecture
+The system consists of three main components:
+URDF Model  →  PyBullet Physics Engine  →  Control Program
+•	URDF Model: Defines the robot structure, geometry, joints, and inertial properties.
+•	PyBullet Engine: Handles physics simulation including gravity, collision, and dynamics.
+•	Control Program: Sends velocity commands to the wheel joints to generate robot motion.
+
+Robot Description
+The robot is a differential drive mobile robot with the following components:
+Base Link
+•	Shape: Box
+•	Dimensions: 0.4 m × 0.3 m × 0.1 m
+•	Mass: 5 kg
+Drive Wheels
+•	Type: Cylindrical
+•	Radius: 0.05 m
+•	Length: 0.02 m
+•	Actuated using continuous joints
+Caster Wheel
+•	Type: Spherical
+•	Radius: 0.05 m
+•	Passive support wheel
+________________________________________
+Folder Structure
+project_folder/
+│
+├── wheeled_robot.urdf
+├── launch_urdf_pybullet.py
+├── configure_robot_properties.py
+├── step4_execute_motion.py
+└── README.md
+________________________________________
+Requirements
+Install the required libraries:
+pip install pybullet
+Python version:
+•	Python 3.7 or higher
+________________________________________
+Step 1: URDF Robot Model
+The robot is fully described using URDF, including:
+•	Visual geometry
+•	Collision geometry
+•	Inertial properties
+•	Joint definitions
+The URDF file:
+wheeled_robot.urdf
+This file defines the kinematic and physical structure of the robot.
+________________________________________
+Step 2: Launch Robot in PyBullet
+Script:
+launch_urdf_pybullet.py
+Run:
+python launch_urdf_pybullet.py
+This step:
+•	Initializes PyBullet in GUI mode
+•	Loads a ground plane
+•	Loads the robot model
+•	Displays the robot in the simulation window
+________________________________________
+Step 3: Configure Robot Properties
+Script:
+configure_robot_properties.py
+This step configures:
+•	Gravity: −9.81 m/s²
+•	Wheel friction: High (for traction)
+•	Caster friction: Low (for smooth rolling)
+•	Linear and angular damping
+•	Base link friction
+These parameters ensure:
+•	Numerical stability
+•	Realistic contact dynamics
+•	Smooth motion
+________________________________________
+Step 4: Execute Robot Motion
+Script:
+step4_execute_motion.py
+This step implements differential drive control and generates:
